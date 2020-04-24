@@ -28,7 +28,11 @@
       <div @click="toggleSidebar">
         <fade-transition :duration="200" origin="center top" mode="out-in">
           <!-- your content here -->
-          <router-view></router-view>
+          <div class="container-fluid">
+            <div class="mt-2">
+              <router-view></router-view>
+            </div>
+          </div>
         </fade-transition>
         <content-footer v-if="!$route.meta.hideFooter"></content-footer>
       </div>

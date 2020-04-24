@@ -85,7 +85,7 @@ export default {
       postRequest("/login", this.model)
         .then(res => {
           this.$store.commit("auth/setUser", res);
-          this.$router.push({ name: "dashboard" });
+          this.$router.push({ name: "home" });
         })
         .catch(error => console.log(error));
     }
