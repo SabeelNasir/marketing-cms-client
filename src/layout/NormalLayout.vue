@@ -1,35 +1,41 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
-    <side-bar :background-color="sidebarBackground" short-title="Argon" title="Argon">
-      <template slot="links">
-        <sidebar-item
-          :link="{
+    <div class="main-content" :data="sidebarBackground">
+      <base-header type="gradient-success" class="pb-6 pb-6 pt-5 pt-md-8">
+        <side-bar
+          :background-color="sidebarBackground"
+          iconTextClass="text-white"
+          :logo="$config.appLogo"
+        >
+          <template slot="links">
+            <sidebar-item
+              :link="{
             name: 'Dashboard',
             icon: 'ni ni-tv-2 text-primary',
             path: '/dashboard'
           }"
-        />
+            />
 
-        <sidebar-item :link="{name: 'Icons', icon: 'ni ni-planet text-blue', path: '/icons'}" />
-        <sidebar-item :link="{name: 'Maps', icon: 'ni ni-pin-3 text-orange', path: '/maps'}" />
-        <sidebar-item
-          :link="{name: 'User Profile', icon: 'ni ni-single-02 text-yellow', path: '/profile'}"
-        />
-        <sidebar-item
-          :link="{name: 'Tables', icon: 'ni ni-bullet-list-67 text-red', path: '/tables'}"
-        />
-        <sidebar-item :link="{name: 'Login', icon: 'ni ni-key-25 text-info', path: '/login'}" />
-        <sidebar-item
-          :link="{name: 'Register', icon: 'ni ni-circle-08 text-pink', path: '/register'}"
-        />
-      </template>
-    </side-bar>
-    <div class="main-content" :data="sidebarBackground">
+            <sidebar-item :link="{name: 'Icons', icon: 'ni ni-planet text-blue', path: '/icons'}" />
+            <sidebar-item :link="{name: 'Maps', icon: 'ni ni-pin-3 text-orange', path: '/maps'}" />
+            <sidebar-item
+              :link="{name: 'User Profile', icon: 'ni ni-single-02 text-yellow', path: '/profile'}"
+            />
+            <sidebar-item
+              :link="{name: 'Tables', icon: 'ni ni-bullet-list-67 text-red', path: '/tables'}"
+            />
+            <sidebar-item :link="{name: 'Login', icon: 'ni ni-key-25 text-info', path: '/login'}" />
+            <sidebar-item
+              :link="{name: 'Register', icon: 'ni ni-circle-08 text-pink', path: '/register'}"
+            />
+          </template>
+        </side-bar>
+      </base-header>
       <div @click="toggleSidebar">
         <fade-transition :duration="200" origin="center top" mode="out-in">
           <!-- your content here -->
           <div class="container-fluid">
-            <div class="mt-2">
+            <div class="mt-lg--7 mt-xl--7 mt-md--7 mt-sm--4 mt--4">
               <router-view></router-view>
             </div>
           </div>

@@ -1,9 +1,8 @@
 <template>
-  <nav class="navbar navbar-vertical navbar-light bg-white">
+  <nav class="navbar navbar-top navbar-dark mt--4" expand>
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <!-- <img :src="logo" class="navbar-brand-img" alt="..." /> -->
-        <h4 class="card-title">{{appTitle}}</h4>
+        <img :src="logo" class="navbar-brand-img" alt="..." height="130px" />
       </router-link>
 
       <slot name="mobile-right">
@@ -18,7 +17,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i class="ni ni-bell-55"></i>
+              <i class="ni ni-bell-55" :class="iconTextClass"></i>
             </a>
 
             <a class="dropdown-item" href="#">Action</a>
@@ -27,35 +26,26 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </base-dropdown>
           <base-dropdown class="nav-item" position="right">
-            <a slot="title" class="nav-link" href="#" role="button">
+            <a slot="title" class="nav-link" href="javascript:void(0)" role="button">
               <div class="media align-items-center">
-                <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="img/theme/team-1-800x800.jpg" />
-                </span>
+                <i
+                  class="fa fa-user-circle fa-2x"
+                  v-b-tooltip.hover.left
+                  title="Account"
+                  :class="iconTextClass"
+                ></i>
               </div>
             </a>
 
             <div class="dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-single-02"></i>
-              <span>My profile</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
+            <router-link to="/account/edit" class="dropdown-item">
               <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-calendar-grid-58"></i>
-              <span>Activity</span>
-            </router-link>
-            <router-link to="/profile" class="dropdown-item">
-              <i class="ni ni-support-16"></i>
-              <span>Support</span>
+              <span>Account Settings</span>
             </router-link>
             <div class="dropdown-divider"></div>
-            <router-link to="logout" class="dropdown-item">
+            <router-link to="/logout" class="dropdown-item">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </router-link>
@@ -121,16 +111,10 @@
 </template>
 <script>
 import NavbarToggleButton from "@/components/NavbarToggleButton";
-import { constants } from "../../config/config";
 export default {
   name: "sidebar",
   components: {
     NavbarToggleButton
-  },
-  data() {
-    return {
-      appTitle: constants.appTitle
-    };
   },
   props: {
     logo: {
@@ -143,6 +127,11 @@ export default {
       default: true,
       description:
         "Whether sidebar should autoclose on mobile when clicking an item"
+    },
+    iconTextClass: {
+      type: String,
+      default: "",
+      description: "Color class for icons & text on header navbar"
     }
   },
   provide() {

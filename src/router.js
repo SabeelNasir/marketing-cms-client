@@ -23,11 +23,9 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else if (to.matched.some(record => record.meta.requiresVisitor)) {
-    console.log('routing...l')
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     if (store.getters['auth/isLoggedIn']) {
-      console.log('loggedin....')
       next({
         name: 'dashboard',
       })

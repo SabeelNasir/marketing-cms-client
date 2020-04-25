@@ -1,13 +1,13 @@
 <template>
-  <div class="col-xl-4 col-sm-12">
-    <div class="card">
+  <div class="col-xl-4 col-sm-12 pb-4">
+    <card shadow>
       <div class="card-header">
         <slot name="header"></slot>
       </div>
       <div class="card-body">
         <slot name="body"></slot>
       </div>
-    </div>
+    </card>
   </div>
 </template>
 
@@ -17,5 +17,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.card{
+  height: 30rem
+}
+.card-header {
+  color: #5eae6d !important
+}
 </style>

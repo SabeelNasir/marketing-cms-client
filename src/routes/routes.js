@@ -8,12 +8,12 @@ const routes = [
         path: '/',
         redirect: 'home',
         component: NormalLayout,
-        meta: { requiresAuth: true },
         children: [
             {
                 path: '/home',
                 name: 'home',
                 component: () => import('@/views/Home/Home'),
+                meta: { requiresAuth: true },
             },
             {
                 path: '/calendars',
@@ -28,6 +28,28 @@ const routes = [
                         component: () => import('@/components/Calendars/NewCalendar'),
                     }
                 ]
+            },
+            {
+                path: '/account/edit',
+                component: () => import('@/components/Account/EditAccount/EditAccount'),
+                meta: { requiresAuth: true },
+                /* children: [
+                    {
+                        path: 'profile',
+                        component: () => import('@/components/Account/EditAccount/Profile'),
+                        meta: { requiresAuth: true, hideFooter: true },
+                    },
+                    {
+                        path: 'password',
+                        component: () => import('@/components/Account/EditAccount/Password'),
+                        meta: { requiresAuth: true, hideFooter: true },
+                    },
+                    {
+                        path: 'notifications',
+                        component: () => import('@/components/Account/EditAccount/Notifications'),
+                        meta: { requiresAuth: true, hideFooter: true },
+                    }
+                ] */
             }
         ]
     },
