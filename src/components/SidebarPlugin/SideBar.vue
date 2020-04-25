@@ -28,12 +28,7 @@
           <base-dropdown class="nav-item" position="right">
             <a slot="title" class="nav-link" href="javascript:void(0)" role="button">
               <div class="media align-items-center">
-                <i
-                  class="fa fa-user-circle fa-2x"
-                  v-b-tooltip.hover.left
-                  title="Account"
-                  :class="iconTextClass"
-                ></i>
+                <i class="fa fa-user-circle fa-2x" title="Account" :class="iconTextClass"></i>
               </div>
             </a>
 

@@ -70,5 +70,11 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style>
+.text-fern {
+  color: #5eae6d;
+}
+.text-theme {
+  color: #5eae6d;
+}
 </style>

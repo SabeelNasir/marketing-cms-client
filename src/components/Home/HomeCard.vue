@@ -1,6 +1,6 @@
 <template>
   <div class="col-xl-4 col-sm-12 pb-4">
-    <card shadow>
+    <card shadow class="overflow-auto">
       <div class="card-header">
         <slot name="header"></slot>
       </div>
@@ -18,10 +18,10 @@ export default {
 </script>
 
 <style scoped>
-.card{
-  height: 30rem
+.card {
+  height: 30rem;
 }
 .card-header {
-  color: #5eae6d !important
+  color: #5eae6d !important;
 }
 </style>

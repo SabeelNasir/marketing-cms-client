@@ -16,6 +16,18 @@ const routes = [
                 meta: { requiresAuth: true },
             },
             {
+                path: '/profile-groups/new',
+                name: 'New Profile Group',
+                component: () => import('@/components/ProfileGroups/NewProfileGroup'),
+                meta: { requiresAuth: true },
+            },
+            {
+                path: '/profile-groups/:id/edit',
+                name: 'Edit Profile Group',
+                component: () => import('@/components/ProfileGroups/EditProfileGroup'),
+                meta: { requiresAuth: true },
+            },
+            {
                 path: '/calendars',
                 component: () => import('@/components/Calendars/Calendars'),
                 children: [
