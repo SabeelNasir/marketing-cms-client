@@ -2,7 +2,6 @@ import axios from './interceptors'
 import { apiUrl } from '@/config/config'
 import formUrlEncoded from 'form-urlencoded'
 import store from '../store'
-
 axios.defaults.baseURL = apiUrl
 
 
@@ -24,6 +23,7 @@ const postRequest = (uri, data, contentType = 'application/json') => {
    }
    return new Promise((resolve, reject) => {
       axios.post(uri, data).then(data => {
+         console.log(data.headers)
          resolve(data.data)
          store.state.progress.mainLoader = false
       }).catch(error => {
@@ -44,6 +44,18 @@ const patchRequest = (uri, data) => {
       })
    })
 }
+const putRequest = (uri, data) => {
+   store.state.progress.mainLoader = true
+   return new Promise((resolve, reject) => {
+      axios.put(uri, data).then(data => {
+         resolve(data.data)
+         store.state.progress.mainLoader = false
+      }).catch(error => {
+         reject(error)
+         store.state.progress.mainLoader = false
+      })
+   })
+}
 const deleteRequest = (uri, data) => {
    store.state.progress.mainLoader = true
    return new Promise((resolve, reject) => {
@@ -56,4 +68,4 @@ const deleteRequest = (uri, data) => {
       })
    })
 }
-export { getRequest, postRequest, patchRequest, deleteRequest }
+export { getRequest, postRequest, patchRequest, deleteRequest, putRequest }

@@ -28,18 +28,16 @@ const routes = [
                 meta: { requiresAuth: true },
             },
             {
-                path: '/calendars',
-                component: () => import('@/components/Calendars/Calendars'),
-                children: [
-                    {
-                        path: ':id/edit',
-                        component: () => import('@/components/Calendars/EditCalendar'),
-                    },
-                    {
-                        path: 'new',
-                        component: () => import('@/components/Calendars/NewCalendar'),
-                    }
-                ]
+                path: '/calendars/new',
+                name: 'New Calendar',
+                component: () => import('@/components/Calendars/NewCalendar'),
+                meta: { requiresAuth: true },
+            },
+            {
+                path: '/calendars/:id/edit',
+                name: 'Edit Calendar',
+                component: () => import('@/components/Calendars/EditCalendar'),
+                meta: { requiresAuth: true },
             },
             {
                 path: '/account/edit',

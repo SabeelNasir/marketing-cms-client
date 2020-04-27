@@ -2,7 +2,7 @@
   <nav class="navbar navbar-top navbar-dark mt--4" expand>
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <img :src="logo" class="navbar-brand-img" alt="..." height="130px" />
+        <img :src="logo" class="navbar-brand-img" alt="..." height="130px" width="150px" />
       </router-link>
 
       <slot name="mobile-right">

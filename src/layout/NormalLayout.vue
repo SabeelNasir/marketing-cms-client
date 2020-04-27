@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" :class="{ 'nav-open': $sidebar.showSidebar }">
     <div class="main-content" :data="sidebarBackground">
-      <base-header type="gradient-success" class="pb-6 pb-6 pt-5 pt-md-8">
+      <base-header type="gradient-info" class="pb-6 pb-6 pt-5 pt-md-8">
         <side-bar
           :background-color="sidebarBackground"
           iconTextClass="text-white"
