@@ -62,7 +62,7 @@ export default {
         .then(() => {
           this.submitting = false;
           this.$message({
-            message: `Profile Group Updated`,
+            message: `${this.profileGroup.name} Updated`,
             type: "success"
           });
           this.$router.push({ path: "/" });

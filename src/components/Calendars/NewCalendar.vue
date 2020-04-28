@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-6 col-12 offset-lg-3">
+  <div class="col-lg-8 col-12 offset-lg-2">
     <card shadow>
       <div class="card-header">
         <div class="row">
@@ -40,6 +40,9 @@ export default {
   methods: {
     onSubmit() {
       console.log(this.calendar);
+    },
+    onComplete: function() {
+      alert("Yay. Done!");
     }
   }
 };

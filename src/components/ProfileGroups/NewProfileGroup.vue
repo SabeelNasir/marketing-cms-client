@@ -50,7 +50,7 @@ export default {
       saveProfileGroup(this.profileGroup)
         .then(() => {
           this.$message({
-            message: `Profile Group Saved`,
+            message: `${this.profileGroup.name} Saved`,
             type: "success"
           });
           this.$router.push({ path: "/" });
