@@ -19,6 +19,15 @@
             </span>
             <router-link to="/calendars/master" class="calendar-name">Master Calendar</router-link>
           </li>
+          <li class="list-group-item mb-3 rounded" v-for="item in calendars" :key="item._id">
+            <span class="mr-2">
+              <i class="fa fa-calendar fa-fw"></i>
+            </span>
+            <router-link
+              :to="'/calendars/'+item._id+'/wizard/details'"
+              class="calendar-name"
+            >{{item.name}}</router-link>
+          </li>
         </ul>
       </div>
     </template>
@@ -26,7 +35,17 @@
 </template>
 
 <script>
-export default {};
+import { getCalendars } from "@/services/calendarService";
+export default {
+  data() {
+    return {
+      calendars: []
+    };
+  },
+  mounted() {
+    getCalendars().then(data => (this.calendars = data));
+  }
+};
 </script>
 
 <style>

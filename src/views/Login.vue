@@ -46,7 +46,10 @@
               <span class="text-muted">Remember me</span>
             </base-checkbox>
             <div class="text-center">
-              <base-button type="primary" @click="onSubmit" class="my-4">Sign in</base-button>
+              <base-button type="primary" @click="onSubmit" class="my-4">
+                <i class="fa fa-spinner fa-spin" v-if="loading"></i>
+                Sign in
+              </base-button>
             </div>
           </form>
         </div>
@@ -77,17 +80,20 @@ export default {
       model: {
         email: "",
         password: ""
-      }
+      },
+      loading: false
     };
   },
   methods: {
     onSubmit() {
+      this.loading = true;
       postRequest("/login", this.model)
         .then(res => {
           this.$store.commit("auth/setUser", res);
           this.$router.push({ name: "home" });
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log(error))
+        .finally(() => (this.loading = false));
     }
   }
 };

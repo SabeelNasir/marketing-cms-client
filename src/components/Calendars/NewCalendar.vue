@@ -1,34 +1,19 @@
 <template>
-  <div class="col-lg-8 col-12 offset-lg-2">
-    <card shadow>
-      <div class="card-header">
-        <div class="row">
-          <div class="col-2">
-            <router-link to="/" class="ni ni-fat-remove ni-2x text-theme"></router-link>
-          </div>
-          <div class="text-center col-8">
-            <h2 class="text-fern">Create a New Calendar</h2>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <form-calendar
-          v-on:onSubmit="onSubmit"
-          :calendar.sync="calendar"
-          :submitting.sync="submitting"
-        ></form-calendar>
-      </div>
-    </card>
-  </div>
+  <calendar-wizard v-on:onSubmit="onSubmit" :submitting.sync="submitting">
+    <form-calendar :calendar.sync="calendar" :submitting.sync="submitting"></form-calendar>
+  </calendar-wizard>
 </template>
 
 <script>
 import FormCalendar from "@/components/Calendars/FormCalendar";
+import { CalendarWizard } from "@/components/Calendars/CalendarWizard";
 import { calendarModel } from "@/models/Calendars";
+import { saveCalendar } from "@/services/calendarService.js";
 export default {
   name: "NewCalendar",
   components: {
-    FormCalendar
+    FormCalendar,
+    CalendarWizard
   },
   data() {
     return {
@@ -38,11 +23,13 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      console.log(this.calendar);
-    },
-    onComplete: function() {
-      alert("Yay. Done!");
+    async onSubmit() {
+      this.submitting = true;
+      const { _id } = await saveCalendar(this.calendar);
+      this.submitting = false;
+      this.$router.push({
+        path: `/calendars/${_id}/wizard/social_accounts`
+      });
     }
   }
 };

@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-top navbar-dark mt--4" expand>
+  <nav class="navbar navbar-top navbar-dark" expand>
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <img :src="logo" class="navbar-brand-img" alt="..." height="130px" width="150px" />
+        <img :src="logo" class="navbar-brand-img" alt="..." height="70px"/>
       </router-link>
 
       <slot name="mobile-right">
@@ -114,7 +114,7 @@ export default {
   props: {
     logo: {
       type: String,
-      default: "img/brand/green.png",
+      default: "/img/brand/green.png",
       description: "Sidebar app logo"
     },
     autoClose: {

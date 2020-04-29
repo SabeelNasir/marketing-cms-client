@@ -7,7 +7,7 @@ const constants = {
     appTitle: 'Socializer',
     companyUrl: "https://logimixin.com",
     companyTitle: "Logimixin",
-    appLogo: "img/brand/socializer.png"
+    appLogo: "/img/brand/socializer.png",
 }
 
 export default {

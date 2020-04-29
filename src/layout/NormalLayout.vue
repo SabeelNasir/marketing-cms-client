@@ -35,7 +35,7 @@
         <fade-transition :duration="200" origin="center top" mode="out-in">
           <!-- your content here -->
           <div class="container-fluid">
-            <div class="mt-lg--7 mt-xl--7 mt-md--7 mt-sm--4 mt--4">
+            <div class="mt-lg--5 mt-xl--5 mt-md--5 mt-sm--3 mt--2">
               <router-view></router-view>
             </div>
           </div>

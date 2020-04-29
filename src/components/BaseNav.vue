@@ -7,7 +7,7 @@
             {[`bg-${type}`]: type}
          ]"
   >
-    <div :class="containerClasses" class="mt--4">
+    <div :class="containerClasses">
       <slot name="brand">
         <router-link
           :to="$route.path"

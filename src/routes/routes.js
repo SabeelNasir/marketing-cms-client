@@ -33,11 +33,27 @@ const routes = [
                 component: () => import('@/components/Calendars/NewCalendar'),
                 meta: { requiresAuth: true },
             },
+            // {
+            //     path: '/calendars/:id/edit',
+            //     name: 'Edit Calendar',
+            //     component: () => import('@/components/Calendars/EditCalendar'),
+            //     meta: { requiresAuth: true },
+            // },
             {
-                path: '/calendars/:id/edit',
-                name: 'Edit Calendar',
-                component: () => import('@/components/Calendars/EditCalendar'),
+                path: '/calendars/:id/wizard/:stage',
+                name: 'Calendar Wizard',
+                component: () => import('@/components/Calendars/CalendarWizard/CalendarWizard'),
                 meta: { requiresAuth: true },
+                // children:[
+                //     {
+                //         path: 'social_accounts',
+                //         component: ()=>import('@/components/Calendars/CalendarWizard/SocialAccounts')
+                //     },
+                //     {
+                //         path: 'rss_feeds',
+                //         component: ()=>import('@/components/Calendars/CalendarWizard/SocialAccounts')
+                //     }
+                // ]
             },
             {
                 path: '/account/edit',

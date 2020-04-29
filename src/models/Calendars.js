@@ -2,7 +2,10 @@ const calendarModel = {
     logo: null,
     name: null,
     timeZone: null,
-    profileGroupId: null
+    profileGroup: {
+        _id: null,
+        name: null
+    }
 }
 export {
     calendarModel
